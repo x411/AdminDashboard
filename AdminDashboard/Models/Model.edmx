@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="WEB_DELETE_MODULES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MODULE_ID" Type="bigint" Mode="In" />
+          <Parameter Name="outResult" Type="bigint" Mode="InOut" />
+          <Parameter Name="outMsg" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="WEB_DELETE_MODULES_TYPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MODULE_TYPE_CODE" Type="varchar" Mode="In" />
+          <Parameter Name="outResult" Type="bigint" Mode="InOut" />
+          <Parameter Name="outMsg" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="WEB_DELETE_MODULES_TYPE_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="bigint" Mode="In" />
+          <Parameter Name="outResult" Type="bigint" Mode="InOut" />
+          <Parameter Name="outMsg" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="WEB_GET_DETAIL_MODULE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="WEB_GET_LIST_MODULE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GET_LIST_MODULUES_TYPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MODULE_TYPE_CODE" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TestModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="WEB_DELETE_MODULES">
+            <Parameter Name="MODULE_ID" Mode="In" Type="Int64" />
+            <Parameter Name="outResult" Mode="InOut" Type="Int64" />
+            <Parameter Name="outMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_DELETE_MODULES_TYPE">
+            <Parameter Name="MODULE_TYPE_CODE" Mode="In" Type="String" />
+            <Parameter Name="outResult" Mode="InOut" Type="Int64" />
+            <Parameter Name="outMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_DELETE_MODULES_TYPE_DETAIL">
+            <Parameter Name="ID" Mode="In" Type="Int64" />
+            <Parameter Name="outResult" Mode="InOut" Type="Int64" />
+            <Parameter Name="outMsg" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GET_DETAIL_MODULE" ReturnType="Collection(TestModel.WEB_GET_DETAIL_MODULE_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="WEB_GET_LIST_MODULE" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULE_Result)" />
+          <FunctionImport Name="WEB_GET_LIST_MODULUES_TYPE" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULUES_TYPE_Result)" />
+          <FunctionImport Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULUES_TYPE_DETAIL_Result)" />
+          <FunctionImport Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE_Result)">
+            <Parameter Name="MODULE_TYPE_CODE" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="WEB_GET_DETAIL_MODULE_Result">
+          <Property Type="Int64" Name="MODULE_ID" Nullable="false" />
+          <Property Type="String" Name="MODULE_TITLE" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+          <Property Type="String" Name="VIEWS" Nullable="true" MaxLength="500" />
+          <Property Type="Int64" Name="MODULE_TYPE_DETAIL" Nullable="true" />
+          <Property Type="String" Name="OPTIONS_NAME" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MODULE_CONTENT" Nullable="true" />
+          <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="LastChange" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ChangeBy" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ZINDEX" Nullable="false" />
+          <Property Type="Boolean" Name="IS_ACTIVE" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="WEB_GET_LIST_MODULE_Result">
+          <Property Type="Int64" Name="MODULE_ID" Nullable="false" />
+          <Property Type="String" Name="MODULE_TITLE" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+          <Property Type="String" Name="VIEWS" Nullable="true" MaxLength="500" />
+          <Property Type="Int64" Name="MODULE_TYPE_DETAIL" Nullable="true" />
+          <Property Type="String" Name="OPTIONS_NAME" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MODULE_CONTENT" Nullable="true" />
+          <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="LastChange" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ChangeBy" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ZINDEX" Nullable="false" />
+          <Property Type="Boolean" Name="IS_ACTIVE" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="WEB_GET_LIST_MODULUES_TYPE_Result">
+          <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="false" MaxLength="500" />
+          <Property Type="Boolean" Name="IS_ACTIVE" Nullable="false" />
+          <Property Type="String" Name="VIEWS" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="OPTIONS_NAME" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+          <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE_Result">
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="OPTIONS_NAME" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+          <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities" >
+          <FunctionImportMapping FunctionImportName="WEB_DELETE_MODULES" FunctionName="TestModel.Store.WEB_DELETE_MODULES" />
+          <FunctionImportMapping FunctionImportName="WEB_DELETE_MODULES_TYPE" FunctionName="TestModel.Store.WEB_DELETE_MODULES_TYPE" />
+          <FunctionImportMapping FunctionImportName="WEB_DELETE_MODULES_TYPE_DETAIL" FunctionName="TestModel.Store.WEB_DELETE_MODULES_TYPE_DETAIL" />
+          <FunctionImportMapping FunctionImportName="WEB_GET_DETAIL_MODULE" FunctionName="TestModel.Store.WEB_GET_DETAIL_MODULE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestModel.WEB_GET_DETAIL_MODULE_Result">
+                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+                <ScalarProperty Name="MODULE_TITLE" ColumnName="MODULE_TITLE" />
+                <ScalarProperty Name="MODULE_TYPE_CODE" ColumnName="MODULE_TYPE_CODE" />
+                <ScalarProperty Name="MODULE_TYPE_NAME" ColumnName="MODULE_TYPE_NAME" />
+                <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+                <ScalarProperty Name="VIEWS" ColumnName="VIEWS" />
+                <ScalarProperty Name="MODULE_TYPE_DETAIL" ColumnName="MODULE_TYPE_DETAIL" />
+                <ScalarProperty Name="OPTIONS_NAME" ColumnName="OPTIONS_NAME" />
+                <ScalarProperty Name="MODULE_CONTENT" ColumnName="MODULE_CONTENT" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LastChange" ColumnName="LastChange" />
+                <ScalarProperty Name="ChangeBy" ColumnName="ChangeBy" />
+                <ScalarProperty Name="ZINDEX" ColumnName="ZINDEX" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GET_LIST_MODULE" FunctionName="TestModel.Store.WEB_GET_LIST_MODULE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestModel.WEB_GET_LIST_MODULE_Result">
+                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+                <ScalarProperty Name="MODULE_TITLE" ColumnName="MODULE_TITLE" />
+                <ScalarProperty Name="MODULE_TYPE_CODE" ColumnName="MODULE_TYPE_CODE" />
+                <ScalarProperty Name="MODULE_TYPE_NAME" ColumnName="MODULE_TYPE_NAME" />
+                <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+                <ScalarProperty Name="VIEWS" ColumnName="VIEWS" />
+                <ScalarProperty Name="MODULE_TYPE_DETAIL" ColumnName="MODULE_TYPE_DETAIL" />
+                <ScalarProperty Name="OPTIONS_NAME" ColumnName="OPTIONS_NAME" />
+                <ScalarProperty Name="MODULE_CONTENT" ColumnName="MODULE_CONTENT" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LastChange" ColumnName="LastChange" />
+                <ScalarProperty Name="ChangeBy" ColumnName="ChangeBy" />
+                <ScalarProperty Name="ZINDEX" ColumnName="ZINDEX" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GET_LIST_MODULUES_TYPE" FunctionName="TestModel.Store.WEB_GET_LIST_MODULUES_TYPE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestModel.WEB_GET_LIST_MODULUES_TYPE_Result">
+                <ScalarProperty Name="MODULE_TYPE_CODE" ColumnName="MODULE_TYPE_CODE" />
+                <ScalarProperty Name="MODULE_TYPE_NAME" ColumnName="MODULE_TYPE_NAME" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="VIEWS" ColumnName="VIEWS" />
+                <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GET_LIST_MODULUES_TYPE_DETAIL" FunctionName="TestModel.Store.WEB_GET_LIST_MODULUES_TYPE_DETAIL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestModel.WEB_GET_LIST_MODULUES_TYPE_DETAIL_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OPTIONS_NAME" ColumnName="OPTIONS_NAME" />
+                <ScalarProperty Name="MODULE_TYPE_CODE" ColumnName="MODULE_TYPE_CODE" />
+                <ScalarProperty Name="MODULE_TYPE_NAME" ColumnName="MODULE_TYPE_NAME" />
+                <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE" FunctionName="TestModel.Store.WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TestModel.WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OPTIONS_NAME" ColumnName="OPTIONS_NAME" />
+                <ScalarProperty Name="MODULE_TYPE_CODE" ColumnName="MODULE_TYPE_CODE" />
+                <ScalarProperty Name="MODULE_TYPE_NAME" ColumnName="MODULE_TYPE_NAME" />
+                <ScalarProperty Name="DESCRIPTIONS" ColumnName="DESCRIPTIONS" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

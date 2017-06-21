@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="WEB_DELETE_MODULES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MODULE_ID" Type="bigint" Mode="In" />
+    <Parameter Name="outResult" Type="bigint" Mode="InOut" />
+    <Parameter Name="outMsg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="WEB_DELETE_MODULES_TYPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MODULE_TYPE_CODE" Type="varchar" Mode="In" />
+    <Parameter Name="outResult" Type="bigint" Mode="InOut" />
+    <Parameter Name="outMsg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="WEB_DELETE_MODULES_TYPE_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="bigint" Mode="In" />
+    <Parameter Name="outResult" Type="bigint" Mode="InOut" />
+    <Parameter Name="outMsg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="WEB_GET_DETAIL_MODULE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="WEB_GET_LIST_MODULE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="WEB_GET_LIST_MODULUES_TYPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MODULE_TYPE_CODE" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="TestModelStoreContainer" />
+</Schema>

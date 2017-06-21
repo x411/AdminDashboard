@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="WEB_DELETE_MODULES">
+      <Parameter Name="MODULE_ID" Mode="In" Type="Int64" />
+      <Parameter Name="outResult" Mode="InOut" Type="Int64" />
+      <Parameter Name="outMsg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WEB_DELETE_MODULES_TYPE">
+      <Parameter Name="MODULE_TYPE_CODE" Mode="In" Type="String" />
+      <Parameter Name="outResult" Mode="InOut" Type="Int64" />
+      <Parameter Name="outMsg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WEB_DELETE_MODULES_TYPE_DETAIL">
+      <Parameter Name="ID" Mode="In" Type="Int64" />
+      <Parameter Name="outResult" Mode="InOut" Type="Int64" />
+      <Parameter Name="outMsg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="WEB_GET_DETAIL_MODULE" ReturnType="Collection(TestModel.WEB_GET_DETAIL_MODULE_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="WEB_GET_LIST_MODULE" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULE_Result)" />
+    <FunctionImport Name="WEB_GET_LIST_MODULUES_TYPE" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULUES_TYPE_Result)" />
+    <FunctionImport Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULUES_TYPE_DETAIL_Result)" />
+    <FunctionImport Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE" ReturnType="Collection(TestModel.WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE_Result)">
+      <Parameter Name="MODULE_TYPE_CODE" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="WEB_GET_DETAIL_MODULE_Result">
+    <Property Type="Int64" Name="MODULE_ID" Nullable="false" />
+    <Property Type="String" Name="MODULE_TITLE" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+    <Property Type="String" Name="VIEWS" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="MODULE_TYPE_DETAIL" Nullable="true" />
+    <Property Type="String" Name="OPTIONS_NAME" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MODULE_CONTENT" Nullable="true" />
+    <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="LastChange" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ChangeBy" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ZINDEX" Nullable="false" />
+    <Property Type="Boolean" Name="IS_ACTIVE" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="WEB_GET_LIST_MODULE_Result">
+    <Property Type="Int64" Name="MODULE_ID" Nullable="false" />
+    <Property Type="String" Name="MODULE_TITLE" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+    <Property Type="String" Name="VIEWS" Nullable="true" MaxLength="500" />
+    <Property Type="Int64" Name="MODULE_TYPE_DETAIL" Nullable="true" />
+    <Property Type="String" Name="OPTIONS_NAME" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="MODULE_CONTENT" Nullable="true" />
+    <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="LastChange" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ChangeBy" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ZINDEX" Nullable="false" />
+    <Property Type="Boolean" Name="IS_ACTIVE" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="WEB_GET_LIST_MODULUES_TYPE_Result">
+    <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="false" MaxLength="500" />
+    <Property Type="Boolean" Name="IS_ACTIVE" Nullable="false" />
+    <Property Type="String" Name="VIEWS" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="OPTIONS_NAME" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+    <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="WEB_GET_LIST_MODULUES_TYPE_DETAIL_BY_TYPE_Result">
+    <Property Type="Int64" Name="ID" Nullable="false" />
+    <Property Type="String" Name="OPTIONS_NAME" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="MODULE_TYPE_CODE" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="MODULE_TYPE_NAME" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="DESCRIPTIONS" Nullable="true" />
+    <Property Type="Int32" Name="QUANTITY" Nullable="false" />
+  </ComplexType>
+</Schema>
